@@ -474,6 +474,8 @@ pre {
   margin-right: -15px;
   margin-left: -15px; }
 
+
+
 .no-gutters {
   margin-right: 0;
   margin-left: 0; }
@@ -8024,7 +8026,7 @@ h1, h2, h3, h4, h5,
   font-weight: 400; }
 
 .ftco-navbar-light {
-  background: #fff;
+  background: #00043c !important;
   z-index: 3;
   padding: 0; }
   @media (max-width: 991.98px) {
@@ -8139,7 +8141,7 @@ h1, h2, h3, h4, h5,
 
 .navbar-brand {
   color: #000000;
-  font-weight: 100;
+  font-weight: 800;
   font-size: 30px;
   line-height: 1;
   margin-bottom: 30px; }
