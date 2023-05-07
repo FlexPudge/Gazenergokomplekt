@@ -9062,7 +9062,9 @@ textarea.form-control {
 .footer {
   padding: 0;
   overflow: hidden;
-  background: #252525; }
+  background: #252525;
+
+}
   .footer a {
     color: #fdbe34; }
   .footer .footer-heading {
