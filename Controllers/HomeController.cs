@@ -12,12 +12,10 @@ namespace Gazenergokomplekt.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
@@ -26,7 +24,18 @@ namespace Gazenergokomplekt.Controllers
         {
             return View();
         }
-
+        public IActionResult Inspection()
+        {
+            return View();
+        }
+        public IActionResult Installation()
+        {
+            return View();
+        }
+        public IActionResult ProjectWork()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
