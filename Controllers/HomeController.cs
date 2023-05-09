@@ -43,6 +43,26 @@ namespace Gazenergokomplekt.Controllers
         {
             return View();
         }
+        public IActionResult Emkosti()
+        {
+            return View();
+        }
+        public IActionResult FiltraSeparatory()
+        {
+            return View();
+        }
+        public IActionResult GasControlPoints()
+        {
+            return View();
+        }
+        public IActionResult GasStation()
+        {
+            return View();
+        }
+        public IActionResult PodogrevatelGaza()
+        {
+            return View();
+        }      
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
