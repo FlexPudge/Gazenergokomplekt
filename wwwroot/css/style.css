@@ -38,7 +38,7 @@
 *,
 *::before,
 *::after {
-    -webkit-box-sizing: border-box;
+    /*-webkit-box-sizing: border-box;*/
     box-sizing: border-box;
 }
 
@@ -12642,7 +12642,6 @@ h1, h2, h3, h4, h5,
 #button_send {
     height: 52px !important;
     background: #fff !important;
-    color: #fdbe34;
     font-size: 18px;
     border-radius: 5px;
     -webkit-box-shadow: none !important;
@@ -12973,7 +12972,6 @@ textarea.form-control {
 .blog-img,
 .user-img {
     width: 100%;
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
