@@ -9,11 +9,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MvcContext")));
 
+builder.Services.AddControllersWithViews();
 /*using (DataContext db = new DataContext(builder.Configuration.GetConnectionString("MvcContext")))
 {
     db.Database.Migrate();
     await db.Database.MigrateAsync();
 }*/
+
+
 
 var app = builder.Build();
 

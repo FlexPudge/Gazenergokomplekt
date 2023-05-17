@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gazenergokomplekt.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230516171819_InitialCreate")]
+    [Migration("20230517164602_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -68,6 +68,9 @@ namespace Gazenergokomplekt.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Product")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

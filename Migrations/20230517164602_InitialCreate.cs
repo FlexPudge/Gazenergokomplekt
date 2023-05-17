@@ -36,6 +36,7 @@ namespace Gazenergokomplekt.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Product = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateCreationOrder = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
