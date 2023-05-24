@@ -51,10 +51,10 @@
                 </button>
                 <div>
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Главная</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Work">Работы</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Products">Продукты</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Новости</a></li>
+                        <li class="nav-item active"><a class="nav-link"  asp-controller="Home" asp-action="Index">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link"  asp-controller="Home" asp-action="Work">Работы</a></li>
+                        <li class="nav-item"><a class="nav-link"  asp-controller="Home" asp-action="Products">Продукты</a></li>
+                        <li class="nav-item"><a class="nav-link"  asp-controller="Home" asp-action="News">Новости</a></li>
                     </ul>
                 </div>
             </div>
@@ -98,8 +98,8 @@
                                         <div class="col-md-4 mb-md-0 mb-4">
                                             <h2 class="footer-heading">Компания</h2>
                                             <ul class="list-unstyled">
-                                                <li><a href="#" class="py-1 d-block">Вакансии</a></li>
-                                                <li><a href="#" class="py-1 d-block">Контакты</a></li>
+                                                <li><a  class="py-1 d-block">Вакансии</a></li>
+                                                <li><a asp-controller ="Home" asp-action="Contacts" class="py-1 d-block">Контакты</a></li>
                                                 <li><a href="#" class="py-1 d-block">Статьи</a></li>
                                                 <li><a href="#" class="py-1 d-block">Сертификаты</a></li>
                                             </ul>

@@ -15,6 +15,7 @@ namespace Gazenergokomplekt.Controllers
         {
             _logger = logger;
         }
+        #region главные
         public IActionResult Index()
         {
             return View();
@@ -27,6 +28,13 @@ namespace Gazenergokomplekt.Controllers
         {
             return View();
         }
+        public IActionResult News()
+        {
+            return View();
+        }
+        #endregion
+
+        #region работы
         public IActionResult Inspection()
         {
             return View();
@@ -39,6 +47,9 @@ namespace Gazenergokomplekt.Controllers
         {
             return View();
         }
+        #endregion
+
+        #region продукты
         public IActionResult BlockModuleBoilers()
         {
             return View();
@@ -62,7 +73,15 @@ namespace Gazenergokomplekt.Controllers
         public IActionResult PodogrevatelGaza()
         {
             return View();
-        }      
+        }
+        #endregion
+
+        #region футер
+        public IActionResult Contacts()
+        {
+            return View();
+        }
+        #endregion
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
