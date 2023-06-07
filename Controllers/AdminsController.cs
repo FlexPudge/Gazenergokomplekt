@@ -7,24 +7,30 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Gazenergokomplekt.Context;
 using Gazenergokomplekt.Models.DBModels;
+using Gazenergokomplekt.Service;
 
 namespace Gazenergokomplekt.Controllers
 {
     public class AdminsController : Controller
     {
         private readonly DataContext _context;
-
+        private Auth _auth = new Auth();
         public AdminsController(DataContext context)
         {
             _context = context;
         }
-
+        public bool CheckAdminAuth()
+        {
+            var status = _auth.ReturnAuthetStatus();
+            return status;
+        }
         // GET: Admins
         public async Task<IActionResult> Index()
         {
-              return _context.Admins != null ? 
-                          View(await _context.Admins.ToListAsync()) :
-                          Problem("Entity set 'DataContext.Admins'  is null.");
+            //var status = CheckAdminAuth();
+            return _context.Admins != null ?
+                        View(await _context.Admins.ToListAsync()) :
+                        Problem("Entity set 'DataContext.Admins'  is null.");
         }
 
         // GET: Admins/Details/5
@@ -55,7 +61,7 @@ namespace Gazenergokomplekt.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,LastName,FirstName,Login,Password,Roles")] Admins admins)
         {
             if (ModelState.IsValid)
@@ -87,7 +93,7 @@ namespace Gazenergokomplekt.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,LastName,FirstName,Login,Password,Roles")] Admins admins)
         {
             if (id != admins.ID)
@@ -138,7 +144,7 @@ namespace Gazenergokomplekt.Controllers
 
         // POST: Admins/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Admins == null)
@@ -150,14 +156,14 @@ namespace Gazenergokomplekt.Controllers
             {
                 _context.Admins.Remove(admins);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AdminsExists(int id)
         {
-          return (_context.Admins?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.Admins?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
