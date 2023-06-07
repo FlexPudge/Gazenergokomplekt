@@ -1,9 +1,6 @@
 ﻿using Gazenergokomplekt.Models;
-using Gazenergokomplekt.ViewModels;
-using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Net;
 
 namespace Gazenergokomplekt.Controllers
 {

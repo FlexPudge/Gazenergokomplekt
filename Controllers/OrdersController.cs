@@ -8,12 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using Gazenergokomplekt.Context;
 using Gazenergokomplekt.Models.DBModels;
 using Microsoft.Data.SqlClient;
+using Gazenergokomplekt.Service;
 
 namespace Gazenergokomplekt.Controllers
 {
     public class OrdersController : Controller
     {
         private readonly DataContext _context;
+        private Auth _auth = new Auth();
 
         public OrdersController(DataContext context)
         {
@@ -23,14 +25,46 @@ namespace Gazenergokomplekt.Controllers
         {
             return View();
         }
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Check([Bind("Login,Password")] Admins admins)
+        {
+            if (ModelState.IsValid)
+            {
+                var admin = await _context.Admins!.FirstOrDefaultAsync(x => x.Login == admins.Login && x.Password == admins.Password);
+
+                if (admin != null)
+                {
+                    _auth.SetAuthStatus(true);
+                    return RedirectToAction(nameof(Index));
+                }
+                if (admin == null)
+                {
+                    _auth.SetAuthStatus(false);
+                    return RedirectToAction(nameof(Admin));
+                }
+            }
+            return RedirectToAction(nameof(Admin));
+        }
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            return _context.Orders != null ?
-                        View(await _context.Orders.ToListAsync()) :
-                        Problem("Entity set 'DataContext.Orders'  is null.");
-        }
+            var status = _auth.ReturnAuthetStatus();
 
+            if (status == true)
+            {
+                return _context.Orders != null ?
+             View(await _context.Orders.ToListAsync()) :
+             Problem("Entity set 'DataContext.Orders'  is null.");
+            }
+            if (status == false)
+            {
+                return RedirectToAction(nameof(Admin));
+            }
+            return RedirectToAction(nameof(Admin));
+        }
         // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
